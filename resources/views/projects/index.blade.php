@@ -3,8 +3,15 @@
 @section('page-title', 'Tutti i progetti')
 
 @section('main-content')
-    <section id="index-admin">
+    <section id="index-guest">
         <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-3">
+                    <a href="{{route('types.index')}}" class="show-button">
+                        Guarda tutte le nostre tecnologie
+                    </a>
+                </div>
+            </div>
             <div class="row">
                 @foreach ($projects as $project)
                     <div class="col-12 col-xs-6 col-sm-4 col-md-3 mb-3">
@@ -17,6 +24,14 @@
                                 <p>
                                     {{ $project->content }}
                                 </p>
+
+                                @if ($project->type != null)
+                                    <a href="{{ route('types.show', ['type'=>$project->type->slug]) }}">
+                                        {{ $project->type->name }}
+                                    </a>
+                                @else
+                                    -
+                                @endif
     
                                 <a href="{{ route('projects.show', ['project' => $project->slug]) }}" class="show-button align-self-baseline">
                                     Mostra

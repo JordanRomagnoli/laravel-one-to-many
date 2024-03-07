@@ -2,6 +2,17 @@
 
     padding-top: 40px;
     background-color: #F2F2F2;
+
+    .row{
+
+        .col-3{
+            a{
+                text-decoration: none;
+                color: gray;
+            }
+        }
+    }
+
    #add {
     margin-bottom: 50px;
     text-align: end;
@@ -29,7 +40,7 @@
         background-color: white;
         border-radius: 20px;
         padding: 20px; 
-        height: 350px;
+        height: 385px;
         box-shadow: 0px 8px 15px 0px #0000005f;
         position: relative;
         .my-card-body {
@@ -45,6 +56,12 @@
                 padding: 10px;
                 overflow-y: auto;
                 font-size: 0.9em;
+            }
+
+            a{
+                padding: 8px 10px;
+                color: #001f3f;
+                font-weight: 400;
             }
             
             .show-button {
@@ -74,7 +91,7 @@
                     width: 50px;
                     height: 50px;
                     text-align: center;
-                    line-height: 50px;
+                    line-height: 35px;
                     font-size: 24px;
                     border-radius: 50%;
                     transition: background-color 0.5s ;
@@ -99,7 +116,7 @@
 }
 
 ::-webkit-scrollbar {
-    width: 8px; // Larghezza della barra di scorrimento
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {

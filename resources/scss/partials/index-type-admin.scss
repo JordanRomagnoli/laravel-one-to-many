@@ -1,0 +1,55 @@
+#index-types-admin, #index-types-guest{
+
+    padding-top: 40px;
+    .container{
+        .row{
+            .col-3{
+
+                .edit-button{
+                    width: 50px;
+                    height: 50px;
+                    line-height: 50px;
+                    border-radius: 50%;
+                    text-align: center;
+                    display: inline-block; 
+                    color: white;
+                    background-color: #2ecc71;
+                }
+
+                .delete-button{
+                    width: 50px;
+                    height: 50px;
+                    line-height: 50px;
+                    border-radius: 50%;
+                    text-align: center;
+                    display: inline-block; 
+                    color: white;
+                    background-color: #b61909;
+                }
+
+                a{
+                    text-decoration: none;
+                    .tecnology{
+                        
+                        margin-top: 12px;
+                        margin-bottom: 80px;
+                        border: 1px solid black;
+                        min-height: 250px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #001f3f;
+                        box-shadow: -10px 10px 0px 1px #2ecc71;
+                        h3{
+                            text-transform: uppercase;
+                            font-weight: 900;
+                            color: white;
+                            margin: 0;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

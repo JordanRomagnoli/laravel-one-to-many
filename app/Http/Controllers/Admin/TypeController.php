@@ -2,30 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Project;
+//Models
 use App\Models\Type;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
-
-// Form Request
-use App\Http\Requests\StoreProjectRequest;
-use App\Http\Requests\UpdateProjectRequest;
 
 // Helper
 use Illuminate\Support\Str;
 
-class ProjectController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $projects = Project::all();
         $types = Type::all();
 
-        return view('admin.projects.index', compact('projects', 'types'));
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -33,7 +28,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        //return view('admin.types.create');
     }
 
     /**
@@ -41,14 +36,14 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $validatedProjectData = $request->validated();
+        // $validatedProjectData = $request->validated();
 
 
-        $validatedProjectData['slug'] = Str::slug($validatedProjectData['title']);
+        // $validatedProjectData['slug'] = Str::slug($validatedProjectData['title']);
 
-        $project = Project::create($validatedProjectData);
+        // $type = Project::create($validatedProjectData);
 
-        return redirect()->route('admin.projects.show', ['project' => $project->slug]);
+        // return redirect()->route('admin.types.show', ['type' => $type->slug]);
     }
 
     /**
@@ -56,9 +51,9 @@ class ProjectController extends Controller
      */
     public function show(string $slug)
     {
-        $project = Project::where('slug', $slug)->firstOrFail();
+        $type = Type::where('slug', $slug)->firstOrFail();
 
-        return view('admin.projects.show', compact('project'));
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -67,9 +62,9 @@ class ProjectController extends Controller
     public function edit(string $slug)
     {
 
-        $project = Project::where('slug', $slug)->firstOrFail();
+        // $type = Type::where('slug', $slug)->firstOrFail();
 
-        return view('admin.projects.edit', compact('project'));
+        // return view('admin.types.edit', compact('type'));
     }
 
     /**

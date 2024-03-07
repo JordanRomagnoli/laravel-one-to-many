@@ -26,6 +26,7 @@
                         <li>
 
                             <a href="{{ route('admin.projects.index') }}">I nostri progetti</a>
+                            <a href="{{ route('admin.types.index') }}">Le nostre tecnologie</a>
 
                         </li>
                     </li>
