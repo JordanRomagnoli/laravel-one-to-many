@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 // Helper
 use Illuminate\Support\Str;
 
+// Form Request
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
+
 class TypeController extends Controller
 {
     /**
@@ -28,22 +32,22 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //return view('admin.types.create');
+        return view('admin.types.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProjectRequest $request)
+    public function store(StoreTypeRequest $request)
     {
-        // $validatedProjectData = $request->validated();
+        $validatedProjectData = $request->validated();
 
 
-        // $validatedProjectData['slug'] = Str::slug($validatedProjectData['title']);
+        $validatedProjectData['slug'] = Str::slug($validatedProjectData['name']);
 
-        // $type = Project::create($validatedProjectData);
+        $type = Type::create($validatedProjectData);
 
-        // return redirect()->route('admin.types.show', ['type' => $type->slug]);
+        return redirect()->route('admin.types.show', ['type' => $type->slug]);
     }
 
     /**
@@ -62,25 +66,25 @@ class TypeController extends Controller
     public function edit(string $slug)
     {
 
-        // $type = Type::where('slug', $slug)->firstOrFail();
+        $type = Type::where('slug', $slug)->firstOrFail();
 
-        // return view('admin.types.edit', compact('type'));
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectRequest $request, string $slug)
+    public function update(UpdateTypeRequest $request, string $slug)
     {
         $validatedProjectData = $request->validated();
 
-        $project = Project::where('slug', $slug)->firstOrFail();
+        $type = Type::where('slug', $slug)->firstOrFail();
 
-        $validatedProjectData['slug'] = Str::slug($validatedProjectData['title']);
+        $validatedProjectData['slug'] = Str::slug($validatedProjectData['name']);
 
-        $project->update($validatedProjectData);
+        $type->update($validatedProjectData);
 
-        return redirect()->route('admin.projects.show',['project'=>$project->slug]);
+        return redirect()->route('admin.types.show',['type'=>$type->slug]);
     }
 
     /**
@@ -88,9 +92,9 @@ class TypeController extends Controller
      */
     public function destroy(string $slug)
     {   
-        $project = Project::where('slug', $slug)->firstOrFail();
-        $project->delete();
+        $type = Type::where('slug', $slug)->firstOrFail();
+        $type->delete();
 
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('admin.types.index');
     }
 }

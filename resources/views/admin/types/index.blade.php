@@ -8,13 +8,25 @@
             <div class="row">
                 @foreach ($types as $singleType)
                     <div class="col-3">
-                        <a href="" class="edit-button">
+                        <a href="{{ route('admin.types.edit', ['type'=>$singleType->slug]) }}" class="edit-button">
                             <i class="fa-solid fa-pencil"></i>
                         </a>
 
-                        <a href="" class="delete-button">
-                            <i class="fa-solid fa-eraser"></i>
-                        </a>
+                        <form
+                            onsubmit="return confirm('Sicuro di voler eliminare questo elemento ? ...')"
+                            action="{{ route('admin.types.destroy', ['type'=>$singleType->slug]) }}"
+                            method="POST"
+                            class="d-inline-block">
+
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit" class="delete-button">
+                                <i class="fa-solid fa-eraser"></i>
+                            </button>
+                            
+                        </form>
+                        
                         <a href="{{ route('admin.types.show', ['type'=>$singleType->slug]) }}">
 
                             <div class="tecnology">
@@ -26,6 +38,23 @@
                         </a>
                     </div>
                 @endforeach
+
+                    <div class="col-3">
+                        
+                        <span>
+                            Aggiungi
+                        </span>
+
+                        <a href="{{ route('admin.types.create') }}">
+
+                            <div class="add-tecnology">
+                                <h3>
+                                    +
+                                </h3>
+                            </div>
+                            
+                        </a>
+                    </div>
             </div>
         </div>
     </section>

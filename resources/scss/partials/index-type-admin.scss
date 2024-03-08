@@ -25,6 +25,7 @@
                     display: inline-block; 
                     color: white;
                     background-color: #b61909;
+                    border: none;
                 }
 
                 a{
@@ -43,6 +44,41 @@
                         h3{
                             text-transform: uppercase;
                             font-weight: 900;
+                            color: white;
+                            margin: 0;
+                        }
+                    }
+
+                }
+            }
+
+            .col-3{
+
+                span{
+                    text-transform: uppercase;
+                    font-size: 2rem;
+                    font-weight: 900;
+                    color: #2ecc71;
+                    margin: 0;
+                }
+
+                a{
+                    text-decoration: none;
+                    .add-tecnology{
+                        
+                        margin-top: 12px;
+                        margin-bottom: 80px;
+                        border: 1px solid #a4a4a4;
+                        min-height: 250px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #a4a4a4;
+                        box-shadow: -10px 10px 0px 1px #2ecc71;
+                        h3{
+                            text-transform: uppercase;
+                            font-weight: 900;
+                            font-size: 3rem;
                             color: white;
                             margin: 0;
                         }
