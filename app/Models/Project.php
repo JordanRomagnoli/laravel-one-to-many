@@ -22,4 +22,10 @@ class Project extends Model
     {
         return $this->belongsTo(Type::class);
     }
+
+    // Many-to-Many con Tag
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

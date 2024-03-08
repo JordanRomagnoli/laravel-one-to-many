@@ -23,13 +23,9 @@ class TypeSeeder extends Seeder
         });
 
         $allTypes = [
-            'HTML',
-            'CSS',
-            'JavaScript',
-            'Vue',
-            'SQL',
-            'PHP',
-            'Laravel'
+            'IT Company',
+            'E-Commerce',
+            'Company Portfolio'
         ];
 
         foreach ($allTypes as $singleType) {

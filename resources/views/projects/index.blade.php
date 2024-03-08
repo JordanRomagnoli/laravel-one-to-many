@@ -6,9 +6,9 @@
     <section id="index-guest">
         <div class="container">
             <div class="row justify-content-end">
-                <div class="col-3">
+                <div class="col-5">
                     <a href="{{route('types.index')}}" class="show-button">
-                        Guarda tutte le nostre tecnologie
+                        Guarda tutti i settori in cui abbiamo lavorato
                     </a>
                 </div>
             </div>
@@ -29,6 +29,17 @@
                                     <a href="{{ route('types.show', ['type'=>$project->type->slug]) }}">
                                         {{ $project->type->name }}
                                     </a>
+                                @else
+                                    -
+                                @endif
+
+
+                                @if ($project->tags != null)
+                                    @foreach ($project->tags as $singleTag)
+                                    <a href="">
+                                        {{ $singleTag->name }}
+                                    </a>
+                                    @endforeach
                                 @else
                                     -
                                 @endif

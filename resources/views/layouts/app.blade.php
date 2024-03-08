@@ -26,7 +26,7 @@
                         <li>
 
                             <a href="{{ route('admin.projects.index') }}">I nostri progetti</a>
-                            <a href="{{ route('admin.types.index') }}">Le nostre tecnologie</a>
+                            <a href="{{ route('admin.types.index') }}">Il nostro target</a>
 
                         </li>
                     </li>
