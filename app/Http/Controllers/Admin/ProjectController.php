@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
 use App\Models\Type;
+use App\Models\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+        $tags = Tag::all();
+
+        return view('admin.projects.create', compact('types', 'tags'));
     }
 
     /**
@@ -68,8 +72,10 @@ class ProjectController extends Controller
     {
 
         $project = Project::where('slug', $slug)->firstOrFail();
+        $types = Type::all();
+        $tags = Tag::all();
 
-        return view('admin.projects.edit', compact('project'));
+        return view('admin.projects.edit', compact('project', 'types', 'tags'));
     }
 
     /**
@@ -84,6 +90,13 @@ class ProjectController extends Controller
         $validatedProjectData['slug'] = Str::slug($validatedProjectData['title']);
 
         $project->update($validatedProjectData);
+
+        if (isset($validatedProjectData['tags'])) {
+            $project->tags()->sync($validatedProjectData['tags']);
+        }
+        else {
+            $project->tags()->detach();
+        }
 
         return redirect()->route('admin.projects.show',['project'=>$project->slug]);
     }

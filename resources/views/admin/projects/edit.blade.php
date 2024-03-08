@@ -34,6 +34,43 @@
                             </div>
                         @enderror
 
+                        <label for="type_id" class="form-label">Settore</label>
+                        <select name="type_id" id="type_id" class="form-select">
+                            <option
+                                {{ old('type_id', $project->type_id) == null ? 'selected' : '' }}
+                                value="">
+                                Seleziona un settore...
+                            </option>
+                            @foreach ($types as $type)
+                                <option
+                                    {{ old('type_id', $project->type_id) == $type->id ? 'selected' : '' }}
+                                    value="{{ $type->id }}">
+                                    {{ $type->name }}
+                                </option>
+                            @endforeach
+                        </select>
+
+                        <label class="form-label">Tecnologie</label>
+
+                        <div>
+                            @foreach ($tags as $tag)
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        @if ($errors->any())
+                                            {{ in_array($tag->id, old('tags', [])) ? 'checked' : '' }}
+                                        @else
+                                            {{ $project->tags->contains($tag->id) ? 'checked' : '' }}
+                                        @endif
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        id="tag-{{ $tag->id }}"
+                                        name="tags[]"
+                                        value="{{ $tag->id }}">
+                                    <label class="form-check-label" for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+
                         <div>
                             <button type="submit" class="btn btn-success w-100">
                                 + Aggiorna

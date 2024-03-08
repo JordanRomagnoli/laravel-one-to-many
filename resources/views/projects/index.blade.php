@@ -33,16 +33,17 @@
                                     -
                                 @endif
 
-
-                                @if ($project->tags != null)
-                                    @foreach ($project->tags as $singleTag)
-                                    <a href="">
-                                        {{ $singleTag->name }}
-                                    </a>
-                                    @endforeach
-                                @else
-                                    -
-                                @endif
+                                <div>
+                                    @if ($project->tags != null)
+                                        @foreach ($project->tags as $singleTag)
+                                        <a href="" class="tag">
+                                            {{ $singleTag->name }}
+                                        </a>
+                                        @endforeach
+                                    @else
+                                        -
+                                    @endif
+                                </div>    
     
                                 <a href="{{ route('projects.show', ['project' => $project->slug]) }}" class="show-button align-self-baseline">
                                     Mostra
