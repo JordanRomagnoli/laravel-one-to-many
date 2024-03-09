@@ -16,6 +16,7 @@ export default defineConfig({
                 'resources/scss/partials/register.scss',
                 'resources/scss/partials/show-type-guest.scss',
                 'resources/scss/partials/index-type-admin.scss',
+                'resources/scss/partials/edit-project.scss',
                 'resources/scss/app.scss',
                 'resources/js/app.js',
             ],
