@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
                     <h1>
-                        Modifica la Tecnologia
+                        Modifica il Settore
                     </h1>
 
                     <form action="{{ route('admin.types.update', ['type' => $type->slug])  }}" method="POST">
@@ -18,9 +18,9 @@
                         @csrf
 
                         <label for="name" class="form-label">Nome Tecnologia</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il nome del nuovo progetto"
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il nome del Settore"
                             maxlength="1024" value="{{$type->name, old('name') }}">
-                        @error('thumb')
+                        @error('name')
                             <div class="alert alert-danger">
                                 {{ $message }}
                             </div>

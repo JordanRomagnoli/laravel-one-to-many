@@ -1,4 +1,4 @@
-#index-types-admin, #index-types-guest{
+#index-types-admin, #index-types-guest, #index-tags-admin{
 
     padding-top: 40px;
     .container{
@@ -30,11 +30,10 @@
 
                 a{
                     text-decoration: none;
-                    .tecnology{
+                    .tecnology, .tag{
                         
                         margin-top: 12px;
                         margin-bottom: 80px;
-                        border: 1px solid black;
                         min-height: 250px;
                         display: flex;
                         justify-content: center;
@@ -42,6 +41,11 @@
                         align-items: center;
                         background-color: #001f3f;
                         box-shadow: -10px 10px 0px 1px #2ecc71;
+                        transition: all .2s ease-in-out;
+                        &:hover{
+                            background-color: #2ecc71;
+                            box-shadow: -10px 10px 0px 1px #001f3f;
+                        }
                         h3{
                             text-transform: uppercase;
                             font-weight: 900;
@@ -69,13 +73,17 @@
                         
                         margin-top: 12px;
                         margin-bottom: 80px;
-                        border: 1px solid #a4a4a4;
                         min-height: 250px;
                         display: flex;
                         justify-content: center;
                         align-items: center;
                         background-color: #a4a4a4;
                         box-shadow: -10px 10px 0px 1px #2ecc71;
+                        transition: all .2s ease-in-out;
+                        &:hover{
+                            background-color: #2ecc71;
+                            box-shadow: -10px 10px 0px 1px #a4a4a4;
+                        }
                         h3{
                             text-transform: uppercase;
                             font-weight: 900;

@@ -40,12 +40,12 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        $validatedProjectData = $request->validated();
+        $validatedTypeData = $request->validated();
 
 
-        $validatedProjectData['slug'] = Str::slug($validatedProjectData['name']);
+        $validatedTypeData['slug'] = Str::slug($validatedTypeData['name']);
 
-        $type = Type::create($validatedProjectData);
+        $type = Type::create($validatedTypeData);
 
         return redirect()->route('admin.types.show', ['type' => $type->slug]);
     }
@@ -76,13 +76,13 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, string $slug)
     {
-        $validatedProjectData = $request->validated();
+        $validatedTypeData = $request->validated();
 
         $type = Type::where('slug', $slug)->firstOrFail();
 
-        $validatedProjectData['slug'] = Str::slug($validatedProjectData['name']);
+        $validatedTypeData['slug'] = Str::slug($validatedTypeData['name']);
 
-        $type->update($validatedProjectData);
+        $type->update($validatedTypeData);
 
         return redirect()->route('admin.types.show',['type'=>$type->slug]);
     }

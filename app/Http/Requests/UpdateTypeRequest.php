@@ -33,7 +33,7 @@ class UpdateTypeRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Inserisci un Nome alla tecnologia',
+            'name.required' => 'Inserisci un Nome al Settore',
         ];
     }
 }

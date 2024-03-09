@@ -9,6 +9,7 @@ use App\Http\Controllers\TypeController;
 use App\Http\Controllers\Admin\MainController as AdminMainController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\TypeController as AdminTypeController;
+use App\Http\Controllers\Admin\TagController as AdminTagController;
 
 
 /*
@@ -51,6 +52,7 @@ Route::prefix('admin')
 
     Route::resource('projects', AdminProjectController::class);
     Route::resource('types', AdminTypeController::class);
+    Route::resource('tags', AdminTagController::class);
 });
 
 require __DIR__.'/auth.php';

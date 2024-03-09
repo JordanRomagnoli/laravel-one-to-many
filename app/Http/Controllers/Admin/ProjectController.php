@@ -52,6 +52,13 @@ class ProjectController extends Controller
 
         $project = Project::create($validatedProjectData);
 
+        if (isset($validatedProjectData['tags'])) {
+            foreach ($validatedProjectData['tags'] as $singleTagId) {
+                
+                $project->tags()->attach($singleTagId);
+            }
+        }
+
         return redirect()->route('admin.projects.show', ['project' => $project->slug]);
     }
 

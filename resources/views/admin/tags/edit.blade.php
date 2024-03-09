@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Aggiungi settore')
+@section('page-title', 'edit tecnologia')
 
 @section('main-content')
     <div class="row">
@@ -8,15 +8,18 @@
             <div class="card">
                 <div class="card-body">
                     <h1>
-                       Aggiungi un nuovo settore
+                        Modifica la Tecnologia
                     </h1>
 
-                    <form action="{{ route('admin.types.store') }}" method="POST">
-                        @csrf
+                    <form action="{{ route('admin.tags.update', ['tag' => $tag->slug])  }}" method="POST">
                         
-                        <label for="name" class="form-label">Nome Settore</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il nome del nuovo settore"
-                            maxlength="1024" value="{{ old('name') }}">
+                        @method('PUT')
+
+                        @csrf
+
+                        <label for="name" class="form-label">Nome Tecnologia</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il nome della Tecnologia"
+                            maxlength="1024" value="{{$tag->name, old('name') }}">
                         @error('name')
                             <div class="alert alert-danger">
                                 {{ $message }}
@@ -25,7 +28,7 @@
 
                         <div>
                             <button type="submit" class="btn btn-success w-100">
-                                + Aggiungi
+                                + Aggiorna
                             </button>
                         </div>
                     </form>

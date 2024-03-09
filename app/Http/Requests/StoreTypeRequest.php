@@ -34,7 +34,7 @@ class StoreTypeRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Inserisci un Nome per la tecnologia',
+            'name.required' => 'Inserisci un Nome per il Settore',
         ];
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 // Helpers
 use Illuminate\Support\Facades\Auth;
 
-class StoreProjectRequest extends FormRequest
+class UpdateTagRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,20 +25,15 @@ class StoreProjectRequest extends FormRequest
     public function rules(): array
     {
         return [
-
-            'title' => 'required|max:255',
+            'name' => 'required|max:255',
             'slug'=> 'nullable|max:255',
-            'content' => 'required|max:1024',
-            'type_id' => 'nullable|exists:types,id',
-            'tags' => 'nullable|array|exists:tags,id',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'title.required' => 'Inserisci un Titolo per il tuo Progetto',
-            'content.required'=> 'Inserisci una descrizione per il tuo Progetto',
+            'name.required' => 'Inserisci un Nome alla Tecnologia',
         ];
     }
 }

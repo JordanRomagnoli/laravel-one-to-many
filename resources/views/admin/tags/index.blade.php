@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
-@section('page-title', 'Tutti i settori')
+@section('page-title', 'Tutti le tecnologie')
 
 @section('main-content')
-    <section id="index-types-admin">
+    <section id="index-tags-admin">
         <div class="container">
             <div class="row">
-                @foreach ($types as $singleType)
+                @foreach ($tags as $singleTag)
                     <div class="col-3">
-                        <a href="{{ route('admin.types.edit', ['type'=>$singleType->slug]) }}" class="edit-button">
+                        <a href="{{ route('admin.tags.edit', ['tag'=>$singleTag->slug]) }}" class="edit-button">
                             <i class="fa-solid fa-pencil"></i>
                         </a>
 
                         <form
                             onsubmit="return confirm('Sicuro di voler eliminare questo elemento ? ...')"
-                            action="{{ route('admin.types.destroy', ['type'=>$singleType->slug]) }}"
+                            action="{{ route('admin.tags.destroy', ['tag'=>$singleTag->slug]) }}"
                             method="POST"
                             class="d-inline-block">
 
@@ -26,12 +26,12 @@
                             </button>
                             
                         </form>
-                        
-                        <a href="{{ route('admin.types.show', ['type'=>$singleType->slug]) }}">
 
-                            <div class="tecnology">
+                        <a href="{{ route('admin.tags.show', ['tag'=>$singleTag->slug]) }}">
+
+                            <div class="tag">
                                 <h3>
-                                    {{$singleType->name}}
+                                    {{$singleTag->name}}
                                 </h3>
                             </div>
                             
@@ -45,7 +45,7 @@
                             Aggiungi
                         </span>
 
-                        <a href="{{ route('admin.types.create') }}">
+                        <a href="{{ route('admin.tags.create') }}">
 
                             <div class="add-tecnology">
                                 <h3>
